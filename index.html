@@ -1,7 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>js portfolio</title>
+    <meta charset="UTF-8" />
+    <title>Age Calculator</title>
   </head>
-  <body></body>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #333;
+    }
+    .panel {
+      width: 400px;
+      height: 400px;
+      box-shadow: 4px 4px 4px 4px #111;
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 12vh;
+      position: relative;
+    }
+    .header {
+      width: 100%;
+      height: 60px;
+      background: #444;
+      border-radius: 10px 10px 0 0;
+    }
+    .header h3 {
+      text-align: center;
+      line-height: 60px;
+      color: #1abc9c;
+    }
+    .p-body {
+      width: 100%;
+      height: 280px;
+    }
+    input {
+      width: 70px;
+      height: 30px;
+      margin: 80px 0 0 40px;
+      border-radius: 4px;
+      border: 2px solid #eee;
+    }
+    input:focus {
+      outline: 0;
+      border: 2px solid #1abc9c;
+    }
+    .button {
+      cursor: pointer;
+      margin-top: 80px;
+      width: 80px;
+      height: 35px;
+      border-radius: 5px;
+      border: 1px solid #1abc9c;
+      color: #fff;
+      background: #1abc9c;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .button:hover {
+      background: #333;
+      color: #1abc9c;
+    }
+    .p-footer {
+      text-align: center;
+      color: #fff;
+    }
+  </style>
+  <body>
+    <div class="panel">
+      <div class="header">
+        <h3>Age Calculator</h3>
+      </div>
+      <div class="p-body">
+        <input id="day" type="text" required />
+        <input id="month" type="text" required />
+        <input id="year" type="text" required />
+        <div class="btn">
+          <button class="button" onclick="cal()">Calculate</button>
+        </div>
+      </div>
+      <div class="p-footer">
+        <h4 id="age"></h4>
+      </div>
+    </div>
+    <script>
+      function cal() {
+        var myday = document.getElementById("day").value;
+        var mymonth = document.getElementById("month").value;
+        var myyear = document.getElementById("year").value;
+
+        var date = new Date();
+        var d = date.getDate();
+        var m = 1 + date.getMonth();
+        var y = date.getFullYear();
+        var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        if (myday > d) {
+          d = d + month[m - 1];
+          m = m - 1;
+        }
+        if (mymonth > m) {
+          m = m + 12;
+          y = y - 1;
+        }
+        var d1 = d - myday;
+        var m1 = m - mymonth;
+        var y1 = y - myyear;
+
+        document.getElementById("age").innerHTML =
+          "Your Age is " + y1 + " Years " + m1 + " Months " + d1 + " Days";
+      }
+    </script>
+  </body>
 </html>
