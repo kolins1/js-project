@@ -3,50 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <title>Age Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.CSS" />
   </head>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #333;
+    }
+    .panel {
+      width: 400px;
+      height: 400px;
+      box-shadow: 4px 4px 4px 4px #111;
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 12vh;
+      position: relative;
+    }
+    .header {
+      width: 100%;
+      height: 60px;
+      background: #444;
+      border-radius: 10px 10px 0 0;
+    }
+    .header h3 {
+      text-align: center;
+      line-height: 60px;
+      color: #1abc9c;
+    }
+    .p-body {
+      width: 100%;
+      height: 280px;
+    }
+    input {
+      width: 70px;
+      height: 30px;
+      margin: 80px 0 0 40px;
+      border-radius: 4px;
+      border: 2px solid #eee;
+    }
+    input:focus {
+      outline: 0;
+      border: 2px solid #1abc9c;
+    }
+    .button {
+      cursor: pointer;
+      margin-top: 80px;
+      width: 80px;
+      height: 35px;
+      border-radius: 5px;
+      border: 1px solid #1abc9c;
+      color: #fff;
+      background: #1abc9c;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .button:hover {
+      background: #333;
+      color: #1abc9c;
+    }
+    .p-footer {
+      text-align: center;
+      color: #fff;
+    }
+  </style>
   <body>
-
-    <!-- navbar-->
-   <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-      <div class="cotainer">
-        <a href="#" class="navbar-brand">Rkays Devs</a>
-
-      <button class="navbar-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-
-       <span class="navbar-toggleer-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navmenu">
-        <ul class="navbar -nav ms-auto">
-          <li class="nav-item">
-            <a href="learn" class="nav-link">description</a>
-          
-          </li>
-          <li class="nav-item">
-            <a href="contact" class="nav-link">contact info</a>
-          
-          </li>
-        </ul>
-
-      </div>
-      </div>
-      <!-- showcase-->
-       <section class="bigdark text-light p-5 text center">
-         <div class="container">
-           <div class="d-flex">
-             <div>
-               <h1>Rkays dev.inc</h1>
-             </div>
-             <img class="img-fluid w-50" src=" ./img/bluu.jpg" alt="" />
-           </div>
-
-         </div>
-
-       </section>
-    </nav>
-
     <div class="panel">
       <div class="header">
         <h3>Age Calculator</h3>
@@ -61,21 +82,35 @@
       </div>
       <div class="p-footer">
         <h4 id="age"></h4>
-
-        <form name="mForm" method="post">
-          <label>Gender</label>
-          <input type="radio" id="male" value="male" name="gender" />
-          <label for="male">Male</label>
-          <input type="radio" id="female" value="female" name="gender" />
-          <label for="female">Female</label>
-
-          <input type="submit" value="Submit" onclick="submitRadioButton" />
-
-          <br /><br />
-        </form>
       </div>
     </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    </sript>
+    <script>
+      function cal() {
+        var myday = document.getElementById("day").value;
+        var mymonth = document.getElementById("month").value;
+        var myyear = document.getElementById("year").value;
+
+        var date = new Date();
+        var d = date.getDate();
+        var m = 1 + date.getMonth();
+        var y = date.getFullYear();
+        var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        if (myday > d) {
+          d = d + month[m - 1];
+          m = m - 1;
+        }
+        if (mymonth > m) {
+          m = m + 12;
+          y = y - 1;
+        }
+        var d1 = d - myday;
+        var m1 = m - mymonth;
+        var y1 = y - myyear;
+
+        document.getElementById("age").innerHTML =
+          "Your Age is " + y1 + " Years " + m1 + " Months " + d1 + " Days";
+      }
+    </script>
   </body>
 </html>
