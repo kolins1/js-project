@@ -25,9 +25,5 @@ function cal() {
     "Your Age is " + y1 + " Years " + m1 + " Months " + d1 + " Days";
 }
 
-function submitRadioButton() {
-  var gen = document.forms["myforms"]["gender"];
-  if (gen[0].checked == false && gen[1].checked == false) {
-    alert("please enter you gender");
-  }
-}
+
+  
