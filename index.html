@@ -90,14 +90,13 @@ var date = parseInt(document.getElementById("day").value);
 var month = parseInt(document.getElementById("month").value);
 var year = parseInt(document.getElementById("year").value);
 // setting up the days
-if (day < 0 || day > 31) {
-    document.getElementsByClassName("dayerror").innerHtml = "Enter valid date";
-} else if (date == "") {
-        document.getElementsByClassName("dayerror").innerHtml = "This field cannot be empty";
-        return false;
-} else; {
-            d.setDate(date);
-}
+if ((date <= 0) || (date > 31)) {
+    alert("you entered invalid date");
+} 
+else if ((month <= 0) || (month > 12)) {
+    alert("you entered invalid month");
+} 
+
 // setting up the months
 if (month < 0 || month == 12) {
     document.getElementsByClassName("montherror").innerHtml = "Enter valid date";
