@@ -1,22 +1,30 @@
 # Project name
 
-## Age calculator
-
-# Project descriptions
-
-## calculate the year,month and the day you were born
+## Akan name generator
 
 # Authers Name
 
 ## Collins Kenduiwa
 
+# Project description
+
+## generate you akan name upon submission
+
+## indicates the day and month you were born
+
 # Setup instruction
 
-## input your details
+## you input your details of your DOB
+
+## if you input wrong details it gives you invalid output
 
 # Technology used
 
-## used js
+## used html
+
+## css
+
+## javascript
 
 # Contact info
 
